@@ -1,0 +1,39 @@
+{
+  "name": "socialmediaplatform",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@onehop/client": "^1.3.14",
+    "@onehop/js": "^1.3.22",
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.20.0",
+    "connect-flash": "^0.1.1",
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "express-fileupload": "^1.4.0",
+    "express-session": "^1.17.3",
+    "file-upload": "^0.0.0",
+    "http": "^0.0.1-security",
+    "jwt-decode": "^3.1.2",
+    "jwt-encode": "^1.0.1",
+    "memorystore": "^1.6.7",
+    "method-override": "^3.0.0",
+    "mysql": "^2.18.1",
+    "node-webcam": "^0.8.1",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0",
+    "peer": "^0.6.1",
+    "socket.io": "^4.5.1",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "dotenv": "^16.0.1",
+    "nodemon": "^2.0.19"
+  }
+}

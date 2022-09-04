@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>person1</title>
+    <style>
+      html {
+        font-family: sans-serif;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      header {
+        width: 98%;
+        height: 90px;
+        background-color: rgb(255 255, 255);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        border-radius: 0 0 0 35px;
+        box-shadow: 0px 2px 10px rgba(0, 0, 121, 0.4);
+        margin-top: 0;
+        float: right;
+        margin-bottom: 33.3%;
+        position: relative;
+      }
+
+      .search {
+        width: 50%;
+        margin-left: 80px;
+        padding-top: 18px;
+      }
+
+      .search input {
+        width: 100%;
+        height: 45px;
+        border-radius: 15px;
+        border: 0;
+        padding-left: 45px;
+        background-color: rgba(0, 0, 121, 0.1);
+        font-size: 20px;
+        outline: none;
+      }
+
+      main {
+        height: 100%;
+      }
+
+      .reply {
+        height: 110px;
+        width: 58%;
+        z-index: 2;
+      }
+
+      textarea {
+        height: 110px;
+        width: 58%;
+        min-width: 100px;
+        margin-left: 50px;
+        background-color: rgba(255, 255, 255);
+        border: 0;
+        border-radius: 25px;
+        box-shadow: 0 4px 10px rgba(0, 0, 121, 0.4);
+        outline: 0;
+        font-size: 20px;
+        font-family: sans-serif;
+        padding-left: 20px;
+        padding-top: 20px;
+        bottom: 32px;
+        padding-right: 110px;
+        overflow: hidden;
+        float: left;
+        resize: none;
+        position: fixed;
+      }
+
+      img {
+        height: 21px;
+        width: 21px;
+      }
+
+      .search-icon {
+        position: absolute;
+        top: 10px;
+        left: 55px;
+      }
+
+      .chat-icon {
+        margin-right: 100px;
+        position: absolute;
+        left: 4.5em;
+        bottom: 2.2em;
+      }
+
+      .emoji {
+        size: 20px;
+        position: absolute;
+        left: 8em;
+        bottom: 2.2em;
+      }
+
+      .share-file input {
+        display: none;
+      }
+
+      .share-file {
+        position: absolute;
+        left: 12em;
+        bottom: 2.2em;
+      }
+
+      .share-file img:hover {
+        cursor: pointer;
+      }
+
+      .send {
+        position: absolute;
+        right: 5rem;
+        bottom: 3.5rem;
+      }
+
+      .send input {
+        display: none;
+      }
+
+      .send img {
+        height: 50px;
+        width: 50px;
+      }
+
+      .notification img {
+        height: 30px;
+        width: 30px;
+      }
+
+      .notification {
+        position: absolute;
+        top: 10px;
+        right: 120px;
+      }
+
+      .profile img {
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+      }
+
+      .profile {
+        position: absolute;
+        top: 0px;
+        right: 20px;
+      }
+
+      .man1 img {
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+      }
+
+      main {
+        width: calc(100% - 410px);
+        float: right;
+        overflow-y: scroll;
+        position: fixed;
+        margin-left: 410px;
+      }
+
+      nav {
+        width: 400px;
+        float: left;
+        border-right: 1px solid rgba(0, 0, 0, 0.1);
+        border-radius: 0 40px 0 0;
+        box-shadow: 0 0 10px rgba(0, 0, 121, 0.3);
+        height: 100%;
+        position: fixed;
+        overflow-y: scroll;
+        z-index: 100;
+      }
+
+      nav::-webkit-scrollbar {
+        width: 1px;
+      }
+
+      nav h1 {
+        text-align: center;
+        margin-top: 30px;
+      }
+
+      a {
+        text-decoration: none;
+        font-family: "Open Sans", sans-serif;
+        color: rgba(0, 0, 0, 0.8);
+      }
+
+      .person img {
+        height: 65px;
+        width: 65px;
+        border-radius: 40%;
+        padding: 0;
+        margin: 0;
+      }
+
+      .person {
+        padding-left: 20px;
+        padding-right: 10px;
+        padding-top: 30px;
+        display: flex;
+        vertical-align: baseline;
+      }
+
+      .text {
+        margin-left: 25px;
+        width: 70%;
+        margin-top: -37px;
+      }
+
+      .text h6 {
+        font-size: 19px;
+        font-family: open sans, sans-serif;
+        color: rgba(0, 0, 0, 0.8);
+        font-weight: 550;
+      }
+
+      .text p {
+        margin-top: -38px;
+        color: rgba(0, 0, 0, 0.6);
+        font-size: 18px;
+      }
+
+      .time {
+        color: rgba(0, 0, 0, 0.6);
+        margin-right: 15px;
+        font-size: 16px;
+      }
+
+      .person:hover {
+        background-color: #fcae1e;
+        cursor: pointer;
+      }
+
+      #one {
+        background-color: #fcae1e;
+      }
+
+      .chat-bubble-table-recieve {
+        color: #000;
+        font-family: sans-serif;
+        position: absolute;
+        top: 20%;
+        display: table;
+      }
+
+      .chat-bubble-recieve {
+        border: 1px solid grey;
+        width: 250px;
+        text-align: center;
+        height: 50px;
+        padding-top: 23px;
+        margin-top: 10px;
+        position: relative;
+        border-radius: 50px;
+        margin-left: 50px;
+      }
+
+      .chat-bubble-send {
+        color: #fff;
+        background-color: #4169e1;
+        width: 250px;
+        left: 100%;
+        text-align: center;
+        height: 50px;
+        padding-top: 23px;
+        margin-top: 10px;
+        position: relative;
+        border-radius: 50px;
+      }
+
+      .video-message-send {
+        position: relative;
+        margin-top: 300px;
+        height: 250px;
+        width: 400px;
+        padding-top: 23px;
+        margin-top: 10px;
+        left: 100%;
+        border: 5px solid #4169e1;
+        border-radius: 40px;
+      }
+
+      .video-message-reciever {
+        position: relative;
+        margin-top: 300px;
+        height: 250px;
+        width: 400px;
+        padding-top: 23px;
+        margin-top: 10px;
+        left: 100%;
+        border: 5px solid grey;
+        border-radius: 40px;
+      }
+
+
+    </style>
+  </head>
+  <body>
+    <nav>
+      <h1>App Name</h1>
+      <!-- person -->
+      <div id="users">
+      </div>
+    </nav>
+
+    <main>
+      <header>
+        <div class="search">
+          <label id="search"><input type="text" placeholder="Search" /></label>
+        </div>
+        <figure class="search-icon">
+          <img src="/public/search.png" />
+        </figure>
+        <div class="notification">
+          <figure>
+            <img src="/public/notification.png" />
+          </figure>
+        </div>
+        <div class="profile">
+          <figure>
+            <img src="/public/person1.jpg" />
+          </figure>
+        </div>
+      </header>
+      <section class="messages-section">
+        <table id="messages-container">
+        </table>
+      </section>
+      <section class="chat">
+        <div id="type" class="reply">
+          <label>
+            <textarea name="message" id="message-input" placeholder="Write a reply..."></textarea>
+          </label>
+          <span class="chat-icon"><img src="/public/chat-icon.png" /></span>
+          <span class="emoji">
+            <label>
+              <a href="#"><img src="/public/emoji.png" /></a>
+            </label>
+          </span>
+          <form action=`` method="post" id="share-file-form" enctype="multipart/form-data">
+            <span class="share-file">
+              <label for="attach">
+                <img src="/public/attach.png" />
+              </label>
+              <input type="file" id="attach" name="attach" onchange="
+              document.getElementById('share-file-form').submit();" />
+            </span>
+          </form>
+          <div class="send" onclick="sendMessage(this)">
+            <label for="submit">
+              <a href="">
+                <img src="/public/send.png" />
+              </a>
+            </label>
+
+            <input id="button" type="button"/>
+          </div>
+        </div>
+        <table>
+            <div class="chat-bubble-table-recieve">
+            </div>
+        </table>
+      </section>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.1/socket.io.js" integrity="sha512-9mpsATI0KClwt+xVZfbcf2lJ8IFBAwsubJ6mI3rtULwyM3fBmQFzj0It4tGqxLOGQwGfJdk/G+fANnxfq9/cew==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        const socket = io();
+        let receiver_id = parseInt(window.location.pathname.match(/chat\/(\d+)/)[1]);
+        
+        document.getElementById("share-file-form").action = '/chat/' + receiver_id
+
+        socket.on('messages', (messages) => {
+          console.log('hello')
+            let recieveContainer = document.querySelector(".chat-bubble-table-recieve");
+
+            console.log(recieveContainer)
+
+            for (let message of messages) {
+              console.log(recieveContainer)
+                if (message.role === 'you') {
+                    if (message.type === 'video') {
+                      let div = document.createElement('video')
+                      div.class = 'video-message-send'
+                      div.src = message.message
+
+                      console.log(recieveContainer)
+
+                      recieveContainer.append(div)
+                    } else {
+                      let div = document.createElement('div')
+                      div.innerHTML = `<div class="chat-bubble-send">${message.message}</div>`;
+                      div.style.color = '#fff'
+
+                      recieveContainer.append(div)
+                    }
+                } else {
+                  if (message.type === 'video') {
+                    let div = document.createElement('video')
+                      div.class = 'video-message-recieve'
+                      div.src = message.message
+
+                      sendContainer.append(div)
+                  } else {
+                    let div = document.createElement('div')
+                    div.innerHTML = `<div class="chat-bubble-recieve">${message.message}</div>`;
+                    div.style.backgroundColor = 'green'
+                    div.style.color = '#fff'
+
+                    recieveContainer.append(div)
+                  }
+                }
+            }
+        })
+
+        socket.on('users', (users) => {
+            let usersTable = document.getElementById('users')
+
+            for (let user of users) {
+                let user_id = user.id;
+                let username = user.username;
+
+                console.log(user_id)
+
+                let innerDiv = `<a href="/chat/${user_id}">
+                                    <div class="person">
+                                      <img src="/public/man10.jpg" alt="friend1" class="profile-img1" />
+                                      <div class="text">
+                                        <h6>${username}</h6>
+                                        <p class="message">Hey, bro how you doin?</p>
+                                        <span class="time"></span>
+                                      </div>
+                                      <span class="time">21:59</span>
+                                    </div>
+                                  </a>`
+
+                let userDiv = document.createElement('div');
+                userDiv.innerHTML = innerDiv;
+                
+                usersTable.append(userDiv)
+            }
+        })
+
+        function sendMessage(e) {
+          console.log('hello')
+            let messageInput = document.getElementById("message-input");
+            console.log(messageInput.value)
+            let info = {
+                message: messageInput.value,
+                type: '',
+                receiver_id: receiver_id,
+            }
+
+            socket.emit('sendMessage', info);
+
+            messageInput.value = ''
+        }
+
+        function redirectToFriend(e) {
+            location.href = '/chat/' + e.childNodes[1].value
+        }
+
+    </script>
+  </body>
+</html>

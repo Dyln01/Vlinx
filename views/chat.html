@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>homepage</title>
+    <style>
+      html {
+        font-family: sans-serif;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      header {
+        width: 98%;
+        height: 90px;
+        background-color: rgb(255 255, 255);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        border-radius: 0 0 0 35px;
+        box-shadow: 0px 2px 10px rgba(0, 0, 121, 0.4);
+        margin-top: 0;
+        float: right;
+        margin-bottom: 33.3%;
+        position: relative;
+      }
+
+      .search {
+        width: 50%;
+        margin-left: 80px;
+        padding-top: 18px;
+      }
+
+      .search input {
+        width: 100%;
+        height: 45px;
+        border-radius: 15px;
+        border: 0;
+        padding-left: 45px;
+        background-color: rgba(0, 0, 121, 0.1);
+        font-size: 20px;
+        outline: none;
+      }
+
+      main {
+        height: 100%;
+      }
+
+      .reply {
+        height: 110px;
+        width: 78%;
+      }
+
+      .reply textarea {
+        height: 110px;
+        width: 58%;
+        margin-left: 50px;
+        background-color: rgba(255, 255, 255);
+        border: 0;
+        border-radius: 25px;
+        box-shadow: 0 4px 10px rgba(0, 0, 121, 0.4);
+        outline: 0;
+        font-size: 20px;
+        font-family: sans-serif;
+        padding-left: 20px;
+        padding-top: 20px;
+        bottom: 32px;
+        padding-right: 110px;
+        float: left;
+        resize: none;
+        position: fixed;
+      }
+
+      img {
+        height: 21px;
+        width: 21px;
+      }
+
+      .search-icon {
+        position: absolute;
+        top: 10px;
+        left: 55px;
+      }
+
+      .chat-icon {
+        margin-right: 100px;
+        position: absolute;
+        left: 4.5em;
+        bottom: 2.2em;
+      }
+
+      .emoji {
+        size: 20px;
+        position: absolute;
+        left: 7.5em;
+        bottom: 2.2em;
+      }
+
+      .share-file input {
+        display: none;
+      }
+
+      .share-file {
+        position: absolute;
+        left: 11em;
+        bottom: 2.2em;
+      }
+
+      .share-file img:hover {
+        cursor: pointer;
+      }
+
+      .send {
+        display: inline;
+        position: absolute;
+        right: 6rem;
+        bottom: 3.5rem;
+      }
+
+      .send input {
+        display: none;
+      }
+
+      .send img {
+        height: 50px;
+        width: 50px;
+      }
+
+      .notification img {
+        height: 30px;
+        width: 30px;
+      }
+
+      .notification {
+        position: absolute;
+        top: 10px;
+        right: 120px;
+      }
+
+      .profile img {
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+      }
+
+      .profile {
+        position: absolute;
+        top: 0px;
+        right: 20px;
+      }
+
+      .man1 img {
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+      }
+
+      main {
+        width: calc(100% - 410px);
+        float: right;
+      }
+
+      nav {
+        width: 400px;
+        float: left;
+        border-right: 1px solid rgba(0, 0, 0, 0.1);
+        border-radius: 0 40px 0 0;
+        box-shadow: 0 0 10px rgba(0, 0, 121, 0.3);
+        height: 100%;
+        position: fixed;
+        overflow-y: scroll;
+      }
+
+      nav::-webkit-scrollbar {
+        width: 1px;
+      }
+
+      nav h1 {
+        text-align: center;
+        margin-top: 30px;
+      }
+
+      a {
+        text-decoration: none;
+        font-family: "Open Sans", sans-serif;
+        color: rgba(0, 0, 0, 0.8);
+      }
+
+      .person img {
+        height: 70px;
+        width: 70px;
+        border-radius: 50%;
+        padding: 0;
+        margin: 0;
+      }
+
+      .person {
+        padding-left: 20px;
+        padding-right: 10px;
+        padding-top: 25px;
+        display: flex;
+        vertical-align: baseline;
+      }
+
+      .text {
+        margin-left: 25px;
+        width: 70%;
+        margin-top: -43px;
+      }
+
+      .text h6 {
+        font-size: 21px;
+        font-family: open sans, sans-serif;
+        color: rgba(0, 0, 0, 0.8);
+        font-weight: 550;
+      }
+
+      .text p {
+        margin-top: -45px;
+        color: rgba(0, 0, 0, 0.6);
+      }
+
+      .time {
+        color: rgba(0, 0, 0, 0.6);
+        margin-right: 15px;
+        font-size: 16px;
+      }
+
+      .person:hover {
+        background-color: #fcae1e;
+        cursor: pointer;
+      }
+
+    </style>
+  </head>
+  <body>
+    <nav>
+      <h1>App Name</h1>
+      <!-- person -->
+      <div id="users">
+      </div>
+    </nav>
+
+    <main>
+      <header>
+        <div class="search">
+          <label id="search"><input type="text" placeholder="Search" /></label>
+        </div>
+        <figure class="search-icon">
+          <img src="public/search.png" />
+        </figure>
+        <div class="notification">
+          <figure>
+            <img src="public/notification.png" />
+          </figure>
+        </div>
+        <div class="profile">
+          <figure>
+            <img src="public/person1.jpg" />
+          </figure>
+        </div>
+      </header>
+    </main>
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.1/socket.io.js" integrity="sha512-9mpsATI0KClwt+xVZfbcf2lJ8IFBAwsubJ6mI3rtULwyM3fBmQFzj0It4tGqxLOGQwGfJdk/G+fANnxfq9/cew==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        const socket = io();
+
+        socket.on('users', (users) => {
+            let usersTable = document.getElementById('users')
+
+            for (let user of users) {
+                let user_id = user.id;
+                let username = user.username;
+
+                console.log(user_id)
+
+                let innerDiv = `<a href="/chat/${user_id}">
+                                    <div class="person">
+                                      <img src="public/man10.jpg" alt="friend1" class="profile-img1" />
+                                      <div class="text">
+                                        <h6>${username}</h6>
+                                        <p class="message">Hey, bro how you doin?</p>
+                                        <span class="time"></span>
+                                      </div>
+                                      <span class="time">21:59</span>
+                                    </div>
+                                  </a>`
+
+                let userDiv = document.createElement('div');
+                userDiv.innerHTML = innerDiv;
+                
+                usersTable.append(userDiv)
+            }
+        })
+
+        function sendMessage(e) {
+            let messageInput = document.getElementById("message-input");
+            let info = {
+                message: messageInput.value,
+                receiver_id: 1,
+            }
+
+            socket.emit('sendMessage', info);
+        }
+
+        function redirectToFriend(e) {
+            location.href = '/chat/' + e.childNodes[1].value
+        }
+    </script>
+    <script>
+        const wait = async () => {
+            if ('<%= jwt %>') {
+                let jwt = JSON.parse('<%- jwt %>');
+
+                localStorage.setItem('token', jwt)
+            }
+        }
+
+        wait()
+
+    </script>
+  </body>
+</html>

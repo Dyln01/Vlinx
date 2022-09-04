@@ -1,0 +1,62 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Sign Up</h1>
+
+    <% if (error === true) {%>
+        <div class="" role="alert">
+            Email already in use.
+        </div>
+    <% } else if (error === false) { %>
+        <div class="" role="alert">
+            Successfully made account!
+        </div>
+    <% } %> 
+    <form action="/register" method="post">
+        <input type="text" name="first_name" placeholder="First Name" required>
+        <input type="text" name="last_name" placeholder="Last Name" required>
+        <input type="text" name="username" placeholder="UserName" required>
+        <input type="text" name="email" placeholder="Email" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <input type="file" name="profile_img" placeholder="Avatar">
+        <button type="submit">Sign Up</button>
+        <a href="/login">Already have a account sign in</a>
+    </form>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js" integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        var error = '<%= error %>';
+
+        var number = 0;
+
+        console.log(error)
+
+        if (error === 'false') {
+            console.log(error)
+            var wait = setInterval(() => {
+            console.log(number)
+            if (number < 2) {
+                number = number + 1;
+            } else {
+                console.log('hello')
+                location.href = '/login';
+                clearInterval(wait);
+            }
+            }, 500)
+        }
+    </script>
+    <script>
+        window.onload = () => {
+            if (localStorage.getItem('token')) {
+                axios.post(this.location.href, {
+                    "token": localStorage.getItem('token'),
+                });
+            }
+        }
+    </script>
+</body>
+</html>
